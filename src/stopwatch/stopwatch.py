@@ -39,12 +39,13 @@ class Stopwatch:
         self.running = False
         click.echo("Stopwatch reset")
 
-    def display(self):
+    def display(self) -> timedelta:
         if self.running:
             elapsed_time = datetime.now() - self.start_time
         else:
             elapsed_time = self.elapsed_time
         Stopwatch.print_elapsed_time(elapsed_time)
+        return elapsed_time
 
     @staticmethod
     def print_elapsed_time(elapsed_time: timedelta):
