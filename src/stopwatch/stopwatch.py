@@ -87,4 +87,23 @@ def display():
 
 
 if __name__ == "__main__":
-    cli()
+    cli(prog_name="stopwatch", standalone_mode=False)
+
+    # Keep the application running
+    while True:
+        try:
+            command = input("Digite um comando (start, stop, reset, display, exit): ")
+            if command == "exit":
+                break
+            elif command == "start":
+                stopwatch.start()
+            elif command == "stop":
+                stopwatch.stop()
+            elif command == "reset":
+                stopwatch.reset()
+            elif command == "display":
+                stopwatch.display()
+            else:
+                click.echo("Comando inválido, tente novamente.")
+        except (KeyboardInterrupt, EOFError):
+            break
